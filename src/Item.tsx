@@ -1,13 +1,4 @@
 import {
-  Activity,
-  ArrowUpRight,
-  CreditCard,
-  DollarSign,
-  Users,
-  Plus,
-} from "lucide-react";
-
-import {
   Card,
   CardContent,
   CardDescription,
