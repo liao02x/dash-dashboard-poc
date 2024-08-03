@@ -71,6 +71,10 @@ export const reset = () => {
   useStore.setState({ data: testData, cache: {} });
 };
 
+export const clear = () => {
+  useStore.setState({ data: [], cache: {} });
+}
+
 export const addGroup = (name: string) => {
   useStore.setState(
     produce((state) => {

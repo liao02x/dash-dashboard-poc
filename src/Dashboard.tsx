@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import AddGroupModal from "./AddGroupModal";
 import Group from "./Group";
 import { css } from "@emotion/css";
-import { useStore, reset } from "./store";
+import { useStore, reset, clear } from "./store";
 
 export default function Dashboard() {
   const data = useStore((state) => state.data);
@@ -22,7 +22,8 @@ export default function Dashboard() {
       </Flex>
       <Flex p="2">
         <AddGroupModal />
-        <Button variant="ghost" onClick={() => reset()}>reset</Button>
+        <Button variant="ghost" onClick={() => reset()}>reset storage</Button>
+        <Button variant="ghost" onClick={() => reset()}>clear storage</Button>
       </Flex>
       {data.map((group) => (
         <Group key={group.id} groupId={group.id} />
