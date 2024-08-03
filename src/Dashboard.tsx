@@ -20,9 +20,9 @@ export default function Dashboard() {
       <Flex px="4" py="2" top="0" position="sticky" className="bg-white">
         <h1>Dashboard</h1>
       </Flex>
-      <Flex p="2" justify="end">
-        <Button variant="ghost" onClick={() => reset()}>reset</Button>
+      <Flex p="2">
         <AddGroupModal />
+        <Button variant="ghost" onClick={() => reset()}>reset</Button>
       </Flex>
       {data.map((group) => (
         <Group key={group.id} groupId={group.id} />
