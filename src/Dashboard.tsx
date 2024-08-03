@@ -23,7 +23,7 @@ export default function Dashboard() {
       <Flex p="2">
         <AddGroupModal />
         <Button variant="ghost" onClick={() => reset()}>reset storage</Button>
-        <Button variant="ghost" onClick={() => reset()}>clear storage</Button>
+        <Button variant="ghost" onClick={() => clear()}>clear storage</Button>
       </Flex>
       {data.map((group) => (
         <Group key={group.id} groupId={group.id} />
