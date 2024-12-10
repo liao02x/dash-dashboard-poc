@@ -52,17 +52,17 @@ export default function AddItemModal({ groupId }: { groupId: string }) {
       addItem(groupId, data.name, data.expression);
       setOpen(false);
       form.reset();
-    } catch (error: any) {
-      const msg = error.message;
+    } catch (error: unknown) {
+      const msg = (error as Error).message;
       if (msg.includes("name")) {
         form.setError("name", {
           type: "manual",
-          message: error.message,
+          message: msg,
         });
       } else {
         form.setError("expression", {
           type: "manual",
-          message: error.message,
+          message: msg,
         });
       }
     }

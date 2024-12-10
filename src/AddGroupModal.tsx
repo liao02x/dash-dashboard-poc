@@ -47,10 +47,10 @@ export default function AddGroupModal() {
       addGroup(data.name);
       setOpen(false);
       form.reset();
-    } catch (error: any) {
+    } catch (error: unknown) {
       form.setError("name", {
         type: "manual",
-        message: error.message,
+        message: (error as Error).message,
       });
     }
   };

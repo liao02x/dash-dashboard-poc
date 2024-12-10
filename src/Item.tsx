@@ -1,7 +1,6 @@
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -9,7 +8,7 @@ import AddItemModal from "./AddItemModal";
 import EditItemModal from "./EditItemModal";
 import cx from "clsx";
 
-import { useStore, useItemValue } from "./store";
+import { useItemValue } from "./store";
 import type { Item } from "./store";
 
 const CardContainer = ({

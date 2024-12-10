@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Pencil1Icon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
 import {
@@ -55,36 +55,37 @@ export default function EditItemModal({
     },
   });
 
-  useEffect(() => {
+  const handleOpenChange = (open: boolean) => {
     if (open) form.reset({
       name: data.name,
       expression: getExpressionDisplay(data.expression),
     });
-  }, [open]);
+    setOpen(open);
+  }
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
     try {
       editItem(groupId, itemId, data.name, data.expression);
       setOpen(false);
       form.reset();
-    } catch (error: any) {
-      const msg = error.message;
+    } catch (error: unknown) {
+      const msg = (error as Error).message;
       if (msg.includes("name")) {
         form.setError("name", {
           type: "manual",
-          message: error.message,
+          message: msg,
         });
       } else {
         form.setError("expression", {
           type: "manual",
-          message: error.message,
+          message: msg,
         });
       }
     }
   };
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogTrigger asChild>
         <Button variant="ghost">
           <Pencil1Icon />

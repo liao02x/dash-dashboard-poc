@@ -1,6 +1,4 @@
-import { useState } from "react";
-import { Flex, Text } from "@radix-ui/themes";
-import { PlusIcon, Cross2Icon } from "@radix-ui/react-icons";
+import { Flex } from "@radix-ui/themes";
 import { Button } from "@/components/ui/button";
 
 import AddGroupModal from "./AddGroupModal";
